@@ -1,6 +1,7 @@
 # soundcloud-embed
 
-
+#Demo:
+Check out the demo at http://sound.notlikely.me
 
 ####scPlayer.init(string url/artist, element, bool autoplay)
 `scPlayer.init('http://www.soundcloud.com/trewth1',document.getElementById('soundcloudFrame'),true);`
