@@ -1,0 +1,262 @@
+$back_color: #eeeeef;
+
+$blur: blur(80px);
+
+$track_height: 50px;
+
+
+@mixin transition($transition...) {
+    -moz-transition:    $transition;
+    -o-transition:      $transition;
+    -webkit-transition: $transition;
+    transition:         $transition;
+}
+
+
+html,body{
+	min-height:100%;
+	font-family: 'Lato', sans-serif;
+}
+
+body{
+	margin:0;padding:0;
+	background-color:transparent;
+}
+
+a{
+	color:#eeeeef;
+	text-decoration:none;
+}
+
+.player_container{
+	position:absolute;
+	left:0;top:0;
+	min-width:800px;
+	width:100%;
+	background-color: $back_color;
+	overflow:hidden;
+}
+
+.player_info_frame{
+	position:relative;
+	width:100%;
+	overflow:hidden;
+	color:#eeeeef;
+}
+
+.player_image_back{
+	position:absolute;
+	top:0;left:0;
+	width:100%;height:100%;
+	background-position:center center !important;
+	background-size:cover !important;
+}
+
+.scrubber_frame{
+	position:absolute;
+	height:100%;
+	width:80%;
+}
+
+.song_info{
+	margin-top:5px;
+	font-size:0.8em;
+	font-weight:300;
+
+	i{
+		margin-left:3.5%;
+	}
+}
+
+.song_frame{
+	opacity:0;
+	@include transition(opacity 1.5s);
+}
+
+.song_name{
+	font-size:1.5em;
+	padding-left:3%;
+	font-weight:300;
+	margin-top:20px;
+}
+
+.artist_image{
+	position:relative;
+	float:right;
+	margin:20px;
+	width:15%;
+	padding:0;
+	margin-bottom:40px;
+	background-color:rgba(0,0,0,0.6);	
+}
+
+.play_pause{
+	&:after{
+		display:block;
+		text-align:center;
+		font-family:ionicons;
+		content:'\f487';
+		font-size:4em;
+		width:100%;height:100%;
+		position:absolute;
+		top:50%;left:0;
+		margin-top:-0.6em;
+		opacity:0;
+		@include transition(opacity 0.6s);
+	}
+
+	&:hover{
+		cursor:pointer;
+		img{
+			opacity:0.4;
+		}
+
+		&:after{
+			opacity:1;
+		}
+	}
+
+	img{
+		@include transition(opacity 0.6s);
+	}
+}
+
+.isPlaying{
+	&:after{
+		content:'\f477';
+	}
+}
+
+.artist_title{
+	position:absolute;
+	bottom:0;
+	left:2.5%;
+	font-size:2.7em;
+	font-weight:300;
+	text-transform:capitalize;
+
+	span{
+		font-size:0.3em;
+
+		b{
+			border:rgba(255,255,255,0.4) 2px solid;
+		}
+	}
+
+	i{
+		margin-left:25px;
+	}
+}
+
+.wave_space{
+	position:relative;
+	height:200px;
+	width:100%;
+	margin-bottom:3em;
+}
+
+.wave{
+	width:100%;
+	position:absolute;
+	bottom:3.2em;
+	left:3%;
+	overflow:hidden;
+	pointer-events: none;
+
+	canvas{
+		//position:relative;
+	}
+
+	&:hover{
+		cursor:text;
+	}
+}
+
+#track_list{
+	position:relative;
+	max-height:$track_height * 4 + (20 * 4); // Number
+	overflow:hidden;
+
+	i{
+		margin-left:3%;
+		margin-right:5px;
+	}
+	.track_item{
+		font-weight:300;
+		padding: 10px 0;
+		border-bottom:#ccc 1px solid;
+		position:relative;
+		height: $track_height;
+		
+
+		&:after{
+			display:block;
+			content:'';
+			width:100%;
+			height:100%;
+			position:absolute;
+			background-color:#000;
+			left:0;top:0;
+			opacity:0;
+			@include transition(opacity 0.6s)
+		}
+
+		&:hover{
+			cursor:pointer;
+			&:after{
+				opacity:0.05;
+			}
+		}
+
+		.track_name{
+			margin-left:10px;
+			font-size:1.2em;
+			opacity:0.8;
+		}
+
+		.track_image{
+			position:absolute;
+			right:2%;
+			top:10%;
+			height:80%;
+		}
+
+		.track_info{
+			margin-top:10px;
+		}
+	}
+	.curTrack{
+		&:after{
+			opacity:0.15;
+		}
+	}
+}
+
+
+.hidden{
+	display:none;
+}
+
+.visible{
+	opacity:1 !important;
+}
+
+.darken{
+	position:absolute;
+	top:0;left:0;
+	content:'';
+	background-color:rgba(0,0,0,0.4);
+	width:100%;height:100%;
+	z-index:0;
+}
+
+.blur {
+    -webkit-filter: $blur;
+    -moz-filter: $blur;
+    -ms-filter: $blur;
+    -o-filter: $blur;
+    /* FF doesn't support blur filter, but SVG */
+    filter: url("data:image/svg+xml;utf8,<svg height='0' xmlns='http://www.w3.org/2000/svg'><filter id='svgBlur' x='-5%' y='-5%' width='110%' height='110%'><feGaussianBlur in='SourceGraphic' stdDeviation='5'/></filter></svg>#svgBlur");
+    filter: $blur;
+}
+

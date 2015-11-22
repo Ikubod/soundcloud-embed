@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  	<head>
+	    <meta charset="UTF-8">
+	    <title> A spiffy soundcloud player </title>
+	    <link rel="stylesheet" type="text/css" href="style/ionicons.min.css" />
+	    <link rel="stylesheet" type="text/css" href="style/player.css" />
+	    <link rel="stylesheet" type="text/css" href="style/perfect-scrollbar.min.css" />
+	    <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	    <script type="text/javascript" src="js/soundmanager2.js"></script>
+	    <script type="text/javascript" src="js/waveform.js"></script>
+	    <script type="text/javascript" src="js/perfect-scrollbar.jquery.min.js"></script>
+	    <script type="text/javascript" src="js/scplayer.js"></script>
+	</head>
+	<body>
+		<div id="playerMain" width="800"></div>
+		<script>
+			var player = new scPlayer();
+			// Initialize player:
+			// player.init(string url/artist name, element, bool autoplay)
+			player.init("trewth1",$('#playerMain'),true);
+			
+		</script>
+	</body>
+</html>
