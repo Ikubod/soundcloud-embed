@@ -49,7 +49,6 @@ soundManager.setup({
  		// generates waveforms from url
 
  		var updateWaves = function(wave_url){
- 			console.log(wave_url);
  			$.getJSON('http://www.waveformjs.org/w?url='+wave_url+'&callback=?', function(data) {
  				if ($.inArray("error", data) == -1){
 					waveBack.update({
@@ -317,8 +316,7 @@ soundManager.setup({
     	this.playTrack = function(trackID){
     		playTrack(trackID);
     	}
-   
-    
+
 	}
 	window.scPlayer = scPlayer;
 } )( window );
