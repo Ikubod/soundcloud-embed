@@ -1,24 +1,13 @@
-html, body {
-  min-height: 100%;
-  font-family: 'Lato', sans-serif; }
-
-body {
-  margin: 0;
-  padding: 0;
-  background-color: transparent; }
-
-a {
-  color: #eeeeef;
-  text-decoration: none; }
-
 .player_container {
-  position: absolute;
-  left: 0;
-  top: 0;
+  position: relative;
   min-width: 800px;
   width: 100%;
   background-color: #eeeeef;
-  overflow: hidden; }
+  overflow: hidden;
+  font-family: 'Lato', sans-serif; }
+  .player_container a {
+    color: #eeeeef;
+    text-decoration: none; }
 
 .player_info_frame {
   position: relative;
@@ -193,12 +182,12 @@ a {
   z-index: 0; }
 
 .blur {
-  -webkit-filter: blur(80px);
-  -moz-filter: blur(80px);
-  -ms-filter: blur(80px);
-  -o-filter: blur(80px);
+  -webkit-filter: blur(70px);
+  -moz-filter: blur(70px);
+  -ms-filter: blur(70px);
+  -o-filter: blur(70px);
   /* FF doesn't support blur filter, but SVG */
   filter: url("data:image/svg+xml;utf8,<svg height='0' xmlns='http://www.w3.org/2000/svg'><filter id='svgBlur' x='-5%' y='-5%' width='110%' height='110%'><feGaussianBlur in='SourceGraphic' stdDeviation='5'/></filter></svg>#svgBlur");
-  filter: blur(80px); }
+  filter: blur(70px); }
 
 /*# sourceMappingURL=player.css.map */

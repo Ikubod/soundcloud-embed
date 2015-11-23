@@ -1,6 +1,6 @@
 $back_color: #eeeeef;
 
-$blur: blur(80px);
+$blur: blur(70px);
 
 $track_height: 50px;
 
@@ -12,29 +12,18 @@ $track_height: 50px;
     transition:         $transition;
 }
 
-
-html,body{
-	min-height:100%;
-	font-family: 'Lato', sans-serif;
-}
-
-body{
-	margin:0;padding:0;
-	background-color:transparent;
-}
-
-a{
-	color:#eeeeef;
-	text-decoration:none;
-}
-
 .player_container{
-	position:absolute;
-	left:0;top:0;
+	position:relative;
 	min-width:800px;
 	width:100%;
 	background-color: $back_color;
 	overflow:hidden;
+	font-family: 'Lato', sans-serif;
+	
+	a{
+		color:#eeeeef;
+		text-decoration:none;
+	}
 }
 
 .player_info_frame{

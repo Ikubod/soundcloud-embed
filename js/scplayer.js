@@ -29,7 +29,9 @@ soundManager.setup({
 		// Adds commas to numbers
 
  		var parseNum = function(num){
- 			return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+ 			if (num){
+ 				return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+ 			}
  		}
 
 
@@ -46,34 +48,14 @@ soundManager.setup({
 
 
 
- 		// generates waveforms from url
-
- 		var updateWaves = function(wave_url){
- 			$.getJSON('http://www.waveformjs.org/w?url='+wave_url+'&callback=?', function(data) {
- 				if ($.inArray("error", data) == -1){
-					waveBack.update({
-						data: data
-					});
-					waveBuffer.update({
-						data: data
-					});
-					waveProgress.update({
-						data: data
-					});
-					waveSeek.update({
-						data: data
-					});
-				}
-			});
- 		}
-
-
-
  		// retrieves waveform from track
 
  		var getWave = function(trackID){
  			return($.getJSON('http://api.soundcloud.com/tracks/'+trackID+'.json?client_id=e387d99dcfc5ee8123f7785be4e23577'));
  		}
+
+
+ 		// creates waveforms
 
  		var genWaves = function(){
  			waveBack = new Waveform({
@@ -103,6 +85,28 @@ soundManager.setup({
 				interpolate: true,
 				height:50,
 				width: $('.scrubber_frame').width()-40
+			});
+ 		}
+
+
+ 		// generates waveforms from url
+
+ 		var updateWaves = function(wave_url){
+ 			$.getJSON('http://www.waveformjs.org/w?url='+wave_url+'&callback=?', function(data) {
+ 				if ($.inArray("error", data) == -1){
+					waveBack.update({
+						data: data
+					});
+					waveBuffer.update({
+						data: data
+					});
+					waveProgress.update({
+						data: data
+					});
+					waveSeek.update({
+						data: data
+					});
+				}
 			});
  		}
 
@@ -284,7 +288,7 @@ soundManager.setup({
 						}
 					}
 
-					// Update everything!
+					// Update all the things!
 					var append = '';
 					if (clicked){
 						$('.curTrack').removeClass('curTrack');

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- ---- *************************************************************************** ---- -->
+<!-- ----     See demo.html and js/scplayer.js to see clean example of the plugin     ---- -->
+<!-- ---- *************************************************************************** ---- -->
+<html>
+  	<head>
+	    <meta charset="UTF-8">
+	    <title> A spiffy soundcloud player </title>
+	    <link rel="stylesheet" type="text/css" href="style/ionicons.min.css" />
+	    <link rel="stylesheet" type="text/css" href="style/player.css" />
+	    <link rel="stylesheet" type="text/css" href="style/perfect-scrollbar.min.css" />
+	    <link href='https://fonts.googleapis.com/css?family=Lato:400,300' rel='stylesheet' type='text/css'>
+
+
+	    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	    <script type="text/javascript" src="js/soundmanager2.js"></script>
+	    <script type="text/javascript" src="js/waveform.js"></script>
+	    <script type="text/javascript" src="js/perfect-scrollbar.jquery.min.js"></script>
+	    <script type="text/javascript" src="js/scplayer.js"></script>
+	    <style>
+
+	    	a{text-decoration:none;}
+
+			body{
+				padding:0;
+				margin:0;
+				font-family: 'Lato', sans-serif;
+				background-color:#cccccd;
+
+			}
+
+			.head{
+				width:100%;
+				position:relative;
+				font-size:1.5em;
+				margin:20px;
+			}
+
+			.head #brag{
+				margin-bottom:10px;
+			}
+
+			.downloadBtn, .forkBtn{
+				position:relative;
+				padding:20px;
+				margin:0 auto;
+				border:#999 1px solid ;
+				width:400px;
+				font-size:1.5em;
+				font-weight:300;
+				color:#000;
+				transition:background 0.4s;
+			}
+
+			.downloadBtn:hover, .forkBtn:hover{
+				background:rgba(0,0,0,0.1);
+				cursor:pointer;
+			}
+			.forkBtn:hover{
+				background:rgba(0,0,0,0.5);
+			}
+
+			.forkBtn{
+				padding:2px;
+				font-size:1em;
+				padding:10px 20px;
+				font-weight:500;
+				border-top:none;
+				color:rgba(255,255,255,0.8);
+				background:rgba(0,0,0,0.4);
+			}
+
+
+			.head a{
+				opacity:0.5;
+				-moz-transition:    opacity 0.4s;
+			    -o-transition:      opacity 0.4s;
+			    -webkit-transition: opacity 0.4s;
+			    transition:         opacity 0.4s;
+			}
+
+			.head a:hover{
+				opacity:0.8;
+			}
+
+			.codeBlock{
+				background-color:rgba(255,255,255,0.3);
+				border:#999 1px solid;
+				padding:10px;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="width:80%;margin-left:10%;min-width:800px;">
+			<div class="head">
+				<h1>A spiffy soundcloud embed</h1>
+				<div id="brag">Created by Spencer Hensel</div>
+				<span style="font-size:0.7em;"><a href="http://notlikely.me" target="_blank" style="text-decoration:none;color:#000;"><i class="ion-earth" style="font-size:1.3em"></i> http://notlikely.me</a></span>
+				<span style="font-size:0.7em;margin-left:20px;"><a href="mailto:its@notlikely.me" target="_blank" style="text-decoration:none;color:#000;"><i class="ion-ios-email-outline" style="font-size:1.3em"></i> its@notlikely.me</a></span>
+				<span style="font-size:0.7em;margin-left:20px;"><a href="https://github.com/Ikubod/soundcloud-embed" target="_blank" style="text-decoration:none;color:#000;"><i class="ion-social-github" style="font-size:1.3em"></i> https://github.com/Ikubod/soundcloud-embed</a></span>
+			</div>
+			<div id="playerMain" width="100%" style="margin-bottom:50px;"></div>
+			<div style="text-align:center;position:relative;"> <a href="https://github.com/Ikubod/soundcloud-embed/archive/master.zip"><div class="downloadBtn"><i class="ion-social-github" style="font-size:2em;position:absolute;left:10px;top:5px;opacity:0.4;"></i> Download from GitHub </div></a>
+			<a href="https://github.com/Ikubod/soundcloud-embed/fork" target="_blank"><div class="forkBtn"><i class="ion-fork-repo" style="font-size:1.4em;position:absolute;left:20px;top:5px;opacity:0.6;"></i>Or fork it!</div></a></div>
+
+			<h1 style="font-size:3em">Usage</h1>
+			<h1>Dependencies</h1>
+			This plugin has a few dependencies which are included. To set them up place the following in the <span class="codeBlock" style="padding:0;">&lt;head&gt; ... &lt;/head&gt;</span> section of your page:
+	<div class="codeBlock" style="margin-top:20px;"><pre>&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style/ionicons.min.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style/player.css&quot; /&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;style/perfect-scrollbar.min.css&quot; /&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/soundmanager2.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/waveform.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/perfect-scrollbar.jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;js/scplayer.js&quot;&gt;&lt;/script&gt; </pre></div>
+
+			<h1>Player Element</h1>
+			The player element can be any block element in the <span class="codeBlock" style="padding:0;">&lt;body&gt; ... &lt;/body&gt;</span> section of your page. You may assign the <span class="codeBlock" style="padding:0;">width</span> attribute to size the player within the player element. Setting <span class="codeBlock" style="padding:0;">width="100%"</span> or simply not including the tag sets the player to scale with the element.<br/><br/>
+			<b>Example:</b>
+<div class="codeBlock" style="margin-top:20px;"><pre>&lt;div id=&quot;soundcloudPlayer&quot; width=&quot;800&quot;&gt;&lt;/div&gt;</pre></div>
+
+			<h1>Initalizing</h1>
+			<div style="font-size:1.2em;font-weight:bold;margin-bottom:10px;margin-top:30px;">scPlayer.init(string url/artist, element, bool autoplay)</div>
+<div class="codeBlock" style="margin-bottom:200px;"><pre>
+var player = new scPlayer();
+player.init('http://www.soundcloud.com/trewth1', $('#soundcloudFrame'), true); </pre></div>
+		</div>
+		<script>
+			var player = new scPlayer();
+			// Initialize player:
+			// player.init(string url/artist name, element, bool autoplay)
+			player.init("trewth1",$('#playerMain'));
+			
+		</script>
+	</body>
+</html>
