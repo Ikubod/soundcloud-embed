@@ -1,13 +1,41 @@
 # soundcloud-embed
 
+<<<<<<< HEAD
 
+=======
+<img align="center" src="http://i.imgur.com/p3MGWOq.png" />
+
+#Demo:
+Check out the demo at http://sound.notlikely.me
+
+#Prerequisites
+**This plugin has a few dependencies:**
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;jQuery - https://jquery.com/
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;soundManager2 - http://www.schillmania.com/projects/soundmanager2/
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;perfect-scrollbar - https://noraesae.github.io/perfect-scrollbar/
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ionicons - http://www.ionicons.com
+
+####Including Prerequisites
+All the files needed are included and should be added before scplayer.js within the `<head>` tag
+
+#Usage: 
+>>>>>>> 82e3d599df4d474537632c99c9202f53963b2d06
 
 ####scPlayer.init(string url/artist, element, bool autoplay)
 `scPlayer.init('http://www.soundcloud.com/trewth1',document.getElementById('soundcloudFrame'),true);`
 
 
+<<<<<<< HEAD
 #Basic example:
 ```
+=======
+##Basic example:
+```html
+>>>>>>> 82e3d599df4d474537632c99c9202f53963b2d06
 <html>
   <head>
     <title> Basic demo </title>
