@@ -1,8 +1,7 @@
 # soundcloud-embed
 
-<<<<<<< HEAD
+HEAD
 
-=======
 <img align="center" src="http://i.imgur.com/p3MGWOq.png" />
 
 #Demo:
@@ -23,19 +22,16 @@ Check out the demo at http://sound.notlikely.me
 All the files needed are included and should be added before scplayer.js within the `<head>` tag
 
 #Usage: 
->>>>>>> 82e3d599df4d474537632c99c9202f53963b2d06
 
 ####scPlayer.init(string url/artist, element, bool autoplay)
 `scPlayer.init('http://www.soundcloud.com/trewth1',document.getElementById('soundcloudFrame'),true);`
 
 
-<<<<<<< HEAD
 #Basic example:
 ```
 =======
 ##Basic example:
 ```html
->>>>>>> 82e3d599df4d474537632c99c9202f53963b2d06
 <html>
   <head>
     <title> Basic demo </title>
