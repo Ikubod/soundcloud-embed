@@ -26,9 +26,6 @@ All the files needed are included and should be added before scplayer.js within 
 
 
 #Basic example:
-```
-=======
-##Basic example:
 ```html
 <html>
   <head>
