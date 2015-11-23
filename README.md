@@ -1,7 +1,5 @@
 # soundcloud-embed
 
-HEAD
-
 <img align="center" src="http://i.imgur.com/p3MGWOq.png" />
 
 #Demo:
